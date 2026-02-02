@@ -1,0 +1,151 @@
+{
+  "info": {
+    "_postman_id": "9c87a997-ac03-4025-b908-6914f21e5923",
+    "name": "Orders",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "39496632",
+    "_collection_link": "https://go.postman.co/collection/39496632-9c87a997-ac03-4025-b908-6914f21e5923?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Get Order",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{LOCAL_HOST}}/inventory/1",
+          "host": [
+            "{{LOCAL_HOST}}"
+          ],
+          "path": [
+            "inventory",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "List Orders",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{LOCAL_HOST}}/orders?page=0&size=1&sortBy=qty&sortDirection=DESC&includeStock=true\n",
+          "host": [
+            "{{LOCAL_HOST}}"
+          ],
+          "path": [
+            "orders"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "0"
+            },
+            {
+              "key": "size",
+              "value": "1"
+            },
+            {
+              "key": "sortBy",
+              "value": "qty"
+            },
+            {
+              "key": "sortDirection",
+              "value": "DESC"
+            },
+            {
+              "key": "includeStock",
+              "value": "true\n"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Order",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"itemId\": \"1\",\r\n    \"qty\": 2,\r\n    \"price\": 5  \r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{LOCAL_HOST}}/orders",
+          "host": [
+            "{{LOCAL_HOST}}"
+          ],
+          "path": [
+            "orders"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Order",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"itemId\": \"1\",\r\n    \"qty\": 11,\r\n    \"price\": 5  \r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{LOCAL_HOST}}/orders/1",
+          "host": [
+            "{{LOCAL_HOST}}"
+          ],
+          "path": [
+            "orders",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Order",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{LOCAL_HOST}}/orders/1",
+          "host": [
+            "{{LOCAL_HOST}}"
+          ],
+          "path": [
+            "orders",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

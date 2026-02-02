@@ -1,0 +1,151 @@
+{
+  "info": {
+    "_postman_id": "3b12a6e7-a34b-40af-b2de-7c0d91f71a2b",
+    "name": "Items",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "39496632",
+    "_collection_link": "https://go.postman.co/collection/39496632-3b12a6e7-a34b-40af-b2de-7c0d91f71a2b?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Get Item",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{LOCAL_HOST}}/items/1",
+          "host": [
+            "{{LOCAL_HOST}}"
+          ],
+          "path": [
+            "items",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "List Item",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{LOCAL_HOST}}/items?page=0&size=10&sortBy=name&sortDirection=ASC&includeStock=true\n",
+          "host": [
+            "{{LOCAL_HOST}}"
+          ],
+          "path": [
+            "items"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "0"
+            },
+            {
+              "key": "size",
+              "value": "10"
+            },
+            {
+              "key": "sortBy",
+              "value": "name"
+            },
+            {
+              "key": "sortDirection",
+              "value": "ASC"
+            },
+            {
+              "key": "includeStock",
+              "value": "true\n"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Item",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Cap\",\r\n  \"price\": 25\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{LOCAL_HOST}}/items",
+          "host": [
+            "{{LOCAL_HOST}}"
+          ],
+          "path": [
+            "items"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Item",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Keyboard\",\r\n  \"price\": 50000\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{LOCAL_HOST}}/items/3",
+          "host": [
+            "{{LOCAL_HOST}}"
+          ],
+          "path": [
+            "items",
+            "3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Item",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{LOCAL_HOST}}/items/1",
+          "host": [
+            "{{LOCAL_HOST}}"
+          ],
+          "path": [
+            "items",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
