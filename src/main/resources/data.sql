@@ -1,12 +1,11 @@
-INSERT INTO items (id, name, price) VALUES
-                                       (1, 'Pen', 5),
-                                       (2, 'Book', 10),
-                                       (3, 'Bag', 30),
-                                       (4, 'Pencil', 3),
-                                       (5, 'Shoe', 45),
-                                       (6, 'Box', 5),
-                                       (7, 'Cap', 25);
-
+INSERT INTO items (name, price) VALUES
+                                    ('Pen', 5),
+                                    ('Book', 10),
+                                    ('Bag', 30),
+                                    ('Pencil', 3),
+                                    ('Shoe', 45),
+                                    ('Box', 5),
+                                    ('Cap', 25);
 
 INSERT INTO orders (order_no, item_id, qty, price) VALUES
                                                        ('O1', 1, 2, 5),
@@ -20,13 +19,13 @@ INSERT INTO orders (order_no, item_id, qty, price) VALUES
                                                        ('O9', 3, 2, 30),
                                                        ('O10', 4, 3, 3);
 
-INSERT INTO inventory (id, item_id, qty, type) VALUES
-                                                   (1, 1, 5, 'T'),
-                                                   (2, 2, 10, 'T'),
-                                                   (3, 3, 30, 'T'),
-                                                   (4, 4, 3, 'T'),
-                                                   (5, 5, 45, 'T'),
-                                                   (6, 6, 5, 'T'),
-                                                   (7, 7, 25, 'T'),
-                                                   (8, 4, 7, 'T'),
-                                                   (9, 5, 10, 'W');
+INSERT INTO inventory (item_id, qty, type) VALUES
+                                               (1, 5, 'T'),
+                                               (2, 10, 'T'),
+                                               (3, 30, 'T'),
+                                               (4, 3, 'T'),
+                                               (5, 45, 'T'),
+                                               (6, 5, 'T'),
+                                               (7, 25, 'T'),
+                                               (4, 7, 'T'),
+                                               (5, 10, 'W');

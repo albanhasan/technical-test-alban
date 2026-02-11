@@ -5,6 +5,7 @@ import com.alban.technical_test_alban.exception.InsufficientStockException;
 import com.alban.technical_test_alban.exception.ResourceNotFoundException;
 import com.alban.technical_test_alban.repository.ItemRepository;
 import com.alban.technical_test_alban.service.ItemService;
+import jakarta.transaction.Transactional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -18,15 +19,16 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class OrderServiceImpl implements OrderService {
 
     private final OrderRepository orderRepository;
     private final ItemRepository itemRepository;
     private final ItemService itemService;
 
-    public OrderDTO getOrder(Long orderNo) {
-        Order order = orderRepository.findById(orderNo)
-                .orElseThrow(() -> new ResourceNotFoundException("Order not found with order no: " + orderNo));
+    public OrderDTO getOrder(Long orderId) {
+        Order order = orderRepository.findById(orderId)
+                .orElseThrow(() -> new ResourceNotFoundException("Order not found with order no: " + orderId));
         return convertToDTO(order);
     }
 
@@ -48,7 +50,13 @@ public class OrderServiceImpl implements OrderService {
             );
         }
 
+        String latestOrderNo = orderRepository.getLatestOrderNo();
+        int number = Integer.parseInt(latestOrderNo.substring(1)); // get the number
+        number++;
+
+        String nextOrderNo = "O" + number;
         Order order = new Order();
+        order.setOrderNo(nextOrderNo);
         order.setItem(item);
         order.setQty(orderDTO.getQty());
         order.setPrice(orderDTO.getPrice());

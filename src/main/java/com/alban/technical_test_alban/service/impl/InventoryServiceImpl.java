@@ -9,6 +9,7 @@ import com.alban.technical_test_alban.repository.InventoryRepository;
 import com.alban.technical_test_alban.repository.ItemRepository;
 import com.alban.technical_test_alban.service.InventoryService;
 import com.alban.technical_test_alban.service.ItemService;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class InventoryServiceImpl implements InventoryService {
     private final InventoryRepository inventoryRepository;
     private final ItemRepository itemRepository;

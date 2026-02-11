@@ -35,7 +35,7 @@ public class ItemController {
 			return ResponseEntity.ok(
 					ApiResponse.<ItemDTO>builder()
 							.success(true)
-							.message("Items found")
+							.message("Item found")
 							.data(item)
 							.build()
 			);
@@ -71,7 +71,7 @@ public class ItemController {
 			return ResponseEntity.ok(
 					ApiResponse.<ItemDTO>builder()
 							.success(true)
-							.message("Items Created successfully")
+							.message("Item created successfully")
 							.data(createdItem)
 							.build()
 			);
@@ -85,7 +85,7 @@ public class ItemController {
 			return ResponseEntity.ok(
 					ApiResponse.<ItemDTO>builder()
 							.success(true)
-							.message("Items Updated successfully")
+							.message("Item updated successfully")
 							.data(updatedItem)
 							.build()
 			);

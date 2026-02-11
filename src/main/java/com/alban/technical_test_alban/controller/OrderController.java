@@ -31,7 +31,7 @@ public class OrderController {
 	private final OrderService orderService;
 	
 	
-	@GetMapping("/{id}")
+	@GetMapping("/{orderId}")
     public ResponseEntity<ApiResponse<OrderDTO>> getOrder(@PathVariable Long orderId) {
         return ResponseEntity.ok(
                 ApiResponse.<OrderDTO>builder()
@@ -68,7 +68,7 @@ public class OrderController {
         return ResponseEntity.ok(
                 ApiResponse.<OrderDTO>builder()
                         .success(true)
-                        .message("Order Created successfully")
+                        .message("Order created successfully")
                         .data(createdOrder)
                         .build()
         );
@@ -82,7 +82,7 @@ public class OrderController {
         return ResponseEntity.ok(
                 ApiResponse.<OrderDTO>builder()
                         .success(true)
-                        .message("Order Updated successfully")
+                        .message("Order updated successfully")
                         .data(updatedOrder)
                         .build()
         );
@@ -94,7 +94,7 @@ public class OrderController {
         return ResponseEntity.ok(
                 ApiResponse.<OrderDTO>builder()
                         .success(true)
-                        .message("Order Deleted successfully")
+                        .message("Order deleted successfully")
                         .data(null)
                         .build()
         );

@@ -341,13 +341,13 @@ DELETE /orders/{orderNo}
 
 ---
 
-### Inventory API
+### Inventories API
 
 Manage stock with Top-ups (T) and Withdrawals (W).
 
-#### 1. Get Inventory by ID
+#### 1. Get Inventories by ID
 ```http
-GET /inventory/{id}
+GET /inventories/{id}
 ```
 
 **Response:**
@@ -365,9 +365,9 @@ GET /inventory/{id}
 }
 ```
 
-#### 2. List All Inventory (Paginated)
+#### 2. List All Inventories (Paginated)
 ```http
-GET /inventory?page=0&size=10&sortBy=qty&sortDirection=DESC
+GET /inventories?page=0&size=10&sortBy=qty&sortDirection=DESC
 ```
 
 **Query Parameters:**
@@ -405,9 +405,9 @@ GET /inventory?page=0&size=10&sortBy=qty&sortDirection=DESC
 }
 ```
 
-#### 3. Create Inventory
+#### 3. Create Inventories
 ```http
-POST /inventory
+POST /inventories
 Content-Type: application/json
 ```
 
@@ -449,9 +449,9 @@ Content-Type: application/json
 - **404 Not Found**: Item does not exist
 - **400 Bad Request**: Insufficient stock for withdrawal
 
-#### 4. Update Inventory
+#### 4. Update Inventories
 ```http
-PUT /inventory/{id}
+PUT /inventories/{id}
 Content-Type: application/json
 ```
 
@@ -489,9 +489,9 @@ Content-Type: application/json
 - **404 Not Found**: Inventory or item does not exist
 - **400 Bad Request**: Update would result in negative stock
 
-#### 5. Delete Inventory
+#### 5. Delete Inventories
 ```http
-DELETE /inventory/{id}
+DELETE /inventories/{id}
 ```
 
 **Business Logic:**

@@ -13,7 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/inventory")
+@RequestMapping("/inventories")
 @RequiredArgsConstructor
 public class InventoryController {
     private final InventoryService inventoryService;
@@ -44,7 +44,7 @@ public class InventoryController {
         return ResponseEntity.ok(
                 ApiResponse.<Page<InventoryDTO>>builder()
                         .success(true)
-                        .message("Inventory found")
+                        .message("Inventory retrieved successfully")
                         .data(inventories)
                         .build()
         );
@@ -56,7 +56,7 @@ public class InventoryController {
         return ResponseEntity.ok(
                 ApiResponse.<InventoryDTO>builder()
                         .success(true)
-                        .message("Inventory Created successfully")
+                        .message("Inventory created successfully")
                         .data(createdInventory)
                         .build()
         );
@@ -70,7 +70,7 @@ public class InventoryController {
         return ResponseEntity.ok(
                 ApiResponse.<InventoryDTO>builder()
                         .success(true)
-                        .message("Inventory Created successfully")
+                        .message("Inventory updated successfully")
                         .data(updatedInventory)
                         .build()
         );
