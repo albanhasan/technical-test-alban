@@ -16,7 +16,6 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-@Transactional
 public class ItemServiceImpl implements ItemService{
 	private final ItemRepository itemRepository;
 	    
@@ -30,7 +29,8 @@ public class ItemServiceImpl implements ItemService{
         Page<Item> items = itemRepository.findAll(pageable);
         return items.map(item -> convertToDTO(item, includeStock));
     }
-    
+
+    @Transactional
     public ItemDTO createItem(ItemDTO itemDTO) {
         // Check for duplicate name
         if (itemRepository.findByName(itemDTO.getName()).isPresent()) {
@@ -44,7 +44,8 @@ public class ItemServiceImpl implements ItemService{
         Item savedItem = itemRepository.save(item);
         return convertToDTO(savedItem, false);
     }
-    
+
+    @Transactional
     public ItemDTO updateItem(Long id, ItemDTO itemDTO) {
         Item item = itemRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Item not found with id: " + id));
@@ -62,7 +63,8 @@ public class ItemServiceImpl implements ItemService{
         Item updatedItem = itemRepository.save(item);
         return convertToDTO(updatedItem, false);
     }
-    
+
+    @Transactional
     public void deleteItem(Long id) {
         Item item = itemRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Item not found with id: " + id));

@@ -19,7 +19,6 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-@Transactional
 public class OrderServiceImpl implements OrderService {
 
     private final OrderRepository orderRepository;
@@ -37,6 +36,7 @@ public class OrderServiceImpl implements OrderService {
         return orders.map(this::convertToDTO);
     }
 
+    @Transactional
     public OrderDTO createOrder(OrderDTO orderDTO) {
         Item item = itemRepository.findById(orderDTO.getItemId())
                 .orElseThrow(() -> new ResourceNotFoundException("Item not found with id: " + orderDTO.getItemId()));
@@ -65,6 +65,7 @@ public class OrderServiceImpl implements OrderService {
         return convertToDTO(savedOrder);
     }
 
+    @Transactional
     public OrderDTO updateOrder(Long orderNo, OrderDTO orderDTO) {
         Order order = orderRepository.findById(orderNo)
                 .orElseThrow(() -> new ResourceNotFoundException("Order not found with order no: " + orderNo));
@@ -96,6 +97,7 @@ public class OrderServiceImpl implements OrderService {
         return convertToDTO(updatedOrder);
     }
 
+    @Transactional
     public void deleteOrder(Long orderNo) {
         Order order = orderRepository.findById(orderNo)
                 .orElseThrow(() -> new ResourceNotFoundException("Order not found with order no: " + orderNo));

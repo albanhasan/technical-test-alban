@@ -17,7 +17,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-@Transactional
 public class InventoryServiceImpl implements InventoryService {
     private final InventoryRepository inventoryRepository;
     private final ItemRepository itemRepository;
@@ -34,6 +33,7 @@ public class InventoryServiceImpl implements InventoryService {
         return inventories.map(this::convertToDTO);
     }
 
+    @Transactional
     public InventoryDTO createInventory(InventoryDTO inventoryDTO) {
         Item item = itemRepository.findById(inventoryDTO.getItemId())
                 .orElseThrow(() -> new ResourceNotFoundException("Item not found with id: " + inventoryDTO.getItemId()));
@@ -57,6 +57,7 @@ public class InventoryServiceImpl implements InventoryService {
         return convertToDTO(savedInventory);
     }
 
+    @Transactional
     public InventoryDTO updateInventory(Long id, InventoryDTO inventoryDTO) {
         Inventory inventory = inventoryRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Inventory not found with id: " + id));
@@ -85,6 +86,7 @@ public class InventoryServiceImpl implements InventoryService {
         return convertToDTO(updatedInventory);
     }
 
+    @Transactional
     public void deleteInventory(Long id) {
         Inventory inventory = inventoryRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Inventory not found with id: " + id));
